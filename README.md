@@ -36,6 +36,14 @@ On the Stanford SNAP web-Google graph (875 713 nodes, 5 105 039 edges), adding 1
 
 ---
 
+### Spam Node Detection
+
+We use a simple, degree‐based rule to flag spam pages:
+
+* **Exact match for our simulation:** We created each spam node with **zero in‐links** and **one out‐link** to the target. By selecting nodes with `in_degree = 0` and `out_degree = 1`, we automatically recover exactly those injected attackers.
+* **Generalizes to real link farms:** Real one‐off spam pages typically point only at their target and receive no organic links, so this heuristic catches such link‐farm patterns while leaving genuine pages largely unaffected.
+
+
 ## Key Results  
 
 | Stage            | PageRank of node 6        |
@@ -59,6 +67,16 @@ This demonstrates that directly deducting the exact spam-derived share of PageRa
 2. **Preserves graph integrity**—no edges or nodes are deleted, maintaining continuity for downstream analyses.  
 
 Penalty-based reduction therefore offers an effective defense against link-farm attacks while retaining the rightful ranking and connectivity of genuine pages.
+
+### Visualizing Effects
+
+To assess collateral impacts on the top‐penalty nodes, we plot the **aggregate positive change** in PageRank (relative to baseline) for three scenarios:
+
+* **After Attack:** A small salmon-colored bar shows that the link‐farm boost barely ripples beyond the single target—most victims see only a tiny net gain.
+* **After Pruning:** The large light-green bar reveals that surgically removing spam edges redistributes a substantial chunk of freed PageRank to many victims, causing an unintended surge.
+* **After Penalty Reduction:** The nearly zero orange bar confirms that subtracting precisely the spam-derived share leaves the overall distribution intact, with no broad upward shifts.
+
+This comparison highlights that **penalty reduction** neutralizes the attack while minimizing side effects on the rest of the network.
 
 ---
 
