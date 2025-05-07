@@ -3,7 +3,7 @@ We investigate how web spammers and SEO manipulators use link farms to artificia
 1. **Edge Pruning**: surgically remove all outgoing edges from automatically detected spam nodes.  
 2. **Penalty Reduction**: compute, for each page, the exact percentage of its PageRank mass that originated from those spam nodes, and subtract that share from its attacked score.  
 
-On the Stanford SNAP web-Google graph (875 713 nodes, 5 105 039 edges), adding 1 000 one-off spam pages to a low-rank target (node 6) boosts its PageRank from ~2.8 × 10⁻⁷ to ~2.7 × 10⁻⁴. Both defenses collapse it back near baseline (pruning → 3.6 × 10⁻⁷; reduction → 3.7 × 10⁻⁷), while leaving a good number of pages—including the top 20 % by original rank—virtually unaffected.
+On the [Stanford SNAP web-Google graph](https://snap.stanford.edu/data/web-Google.html/) (875 713 nodes, 5 105 039 edges), adding 1 000 one-off spam pages to a low-rank target (node 6) boosts its PageRank from ~2.8 × 10⁻⁷ to ~2.7 × 10⁻⁴. Both defenses collapse it back near baseline (pruning → 3.6 × 10⁻⁷; reduction → 3.7 × 10⁻⁷), while leaving a good number of pages—including the top 20 % by original rank—virtually unaffected.
 
 ---
 
